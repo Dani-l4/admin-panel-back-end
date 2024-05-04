@@ -10,7 +10,6 @@ const PORT = process.env.SERVER_PORT || 3000
 
 app.use(cookieParser())
 app.use(express.json())
-console.log('client url', process.env.CLIENT_URL)
 app.use(cors({ credentials: true, origin: [`${process.env.CLIENT_URL}`] }))
 
 app.use('/auth', AuthRouter)
