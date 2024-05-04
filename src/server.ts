@@ -4,6 +4,7 @@ import cors from 'cors'
 import AuthRouter from './routers/Auth.js'
 import './db/connection.js'
 import ResourceRouter from './routers/Resource.js'
+import { Request, Response } from 'express-serve-static-core'
 
 const app: Express = express()
 const PORT = process.env.SERVER_PORT || 3000
@@ -12,6 +13,9 @@ app.use(cookieParser())
 app.use(express.json())
 app.use(cors({ credentials: true, origin: [`${process.env.CLIENT_URL}`] }))
 
+app.use('/', (req: Request, res: Response) => {
+    res.send('Hello')
+})
 app.use('/auth', AuthRouter)
 app.use('/admin', ResourceRouter)
 
