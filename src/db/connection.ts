@@ -2,15 +2,7 @@ import { Sequelize, DataType } from 'sequelize-typescript'
 import User from './models/User.js'
 import Session from './models/Session.js'
 
-const sequelize = new Sequelize({
-    dialect: 'postgres',
-    database: process.env.PG_DB_NAME,
-    username: process.env.PG_USER,
-    password: process.env.PG_USER_PASSWORD,
-    host: process.env.PG_HOST,
-    port: Number(process.env.PG_PORT),
-    models: ['./models'],
-})
+const sequelize = new Sequelize(String(process.env.DATABASE_URL))
 
 sequelize.addModels([User, Session])
 
