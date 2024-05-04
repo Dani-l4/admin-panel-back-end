@@ -26,6 +26,5 @@ export default class ResourceService {
             await SessionRepository.deleteSessionByUserId(id)
             user && (await UserRepository.deleteUser(user))
         }
-        return
     }
 }

@@ -23,6 +23,10 @@ export default class ResourceController {
 
     static async deleteUsers(req: iReqWUser, res: iResWUser) {
         await ResourceService.deleteUsers(req.body)
-        return res.sendStatus(200)
+        const deleteHimSelf: boolean = req.body.includes(req.user.id)
+        if (deleteHimSelf) {
+            res.clearCookie('refreshToken')
+        }
+        return res.status(200).json({ redirect: deleteHimSelf })
     }
 }
