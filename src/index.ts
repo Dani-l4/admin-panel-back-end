@@ -13,8 +13,8 @@ app.use(cookieParser())
 app.use(express.json())
 app.use(cors({ credentials: true, origin: [`${process.env.CLIENT_URL}`] }))
 
-app.use('/', (req: Request, res: Response) => {
-    res.send('Hello')
+app.get('/', (_: Request, res: Response) => {
+    res.json('Hello')
 })
 app.use('/auth', AuthRouter)
 app.use('/admin', ResourceRouter)

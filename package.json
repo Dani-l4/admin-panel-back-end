@@ -2,11 +2,11 @@
     "name": "admin-panel",
     "version": "1.0.0",
     "description": "",
-    "main": "./dist/server.js",
+    "main": "./dist/index.js",
     "type": "module",
     "scripts": {
         "build": "rimraf ./dist && npx tsc",
-        "start": "npm run build && node --env-file .env ./dist/server.js",
+        "start": "npm run build && node --env-file .env ./dist/index.js",
         "dev": "npx nodemon"
     },
     "keywords": [],
